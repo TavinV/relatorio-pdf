@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heliocentrism Tênis - Pedidos</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Heliocentrism Tênis - Pedido de Compra</h1>
+
+    <div class="form-group">
+        <label for="client-name">Cliente:</label>
+        <input type="text" id="client-name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="client-doc">CPF/CNPJ:</label>
+        <input type="text" id="client-doc" required>
+    </div>
+
+    <div class="form-group">
+        <label for="order-date">Data:</label>
+        <input type="date" id="order-date" required>
+    </div>
+
+    <h3>Itens do Pedido</h3>
+    <div id="items-container"></div>
+    <button type="button" id="add-item">Adicionar Item</button>
+
+    <div class="form-group">
+        <label for="observations">Observações:</label>
+        <textarea id="observations" rows="3"></textarea>
+    </div>
+
+    <button type="button" id="generate-doc">Gerar Nota Fiscal</button>
+
+    <div id="document">
+        <h2 style="text-align: center;">Heliocentrism Tênis</h2>
+        <p style="text-align: center;">
+            CNPJ: 12.345.678/0001-99<br>
+            Av. dos Astronautas, 1969 - São Paulo/SP<br>
+            Telefone: (11) 4002-8922
+        </p>
+
+        <h3 style="text-align: center;">NOTA FISCAL</h3>
+
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <strong>Cliente:</strong> <span id="doc-client-name"></span><br>
+                <strong>CPF/CNPJ:</strong> <span id="doc-client-doc"></span>
+            </div>
+            <div>
+                <strong>Data:</strong> <span id="doc-date"></span><br>
+                <strong>Número:</strong> NF-<span id="doc-number">001</span>
+            </div>
+        </div>
+
+        <table id="doc-items">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Descrição</th>
+                    <th>Quant.</th>
+                    <th>Valor Unit.</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Itens serão inseridos aqui -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align: right;"><strong>TOTAL:</strong></td>
+                    <td><strong id="doc-total">R$ 0,00</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div>
+            <strong>Observações:</strong>
+            <div id="doc-observations" style="border: 1px solid #ddd; min-height: 50px; padding: 5px;"></div>
+        </div>
+
+        <div class="signature-area">
+            <div class="signature-box">
+                <p>Responsável pela Loja</p>
+                <div class="signature-line"></div>
+                <p>Heliocentrism Tênis</p>
+            </div>
+            <div class="signature-box">
+                <p>Cliente</p>
+                <div class="signature-line"></div>
+                <p id="doc-signature-name"></p>
+            </div>
+        </div>
+
+        <div id="document-buttons" style="text-align: center; margin-top: 30px;">
+            <button id="print-doc">Imprimir</button>
+            <button id="download-pdf">Baixar PDF</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
