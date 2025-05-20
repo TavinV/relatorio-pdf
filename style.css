@@ -152,7 +152,6 @@ th {
 
 @media print {
     body * {
-        visibility: hidden;
     }
 
     #document,

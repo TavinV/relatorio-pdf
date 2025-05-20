@@ -146,22 +146,26 @@
               const productSelect = item.querySelector('.product-select');
               const selectedOption = productSelect.options[productSelect.selectedIndex];
               const productName = selectedOption.text.split(' - ')[0];
-              const quantity = item.querySelector('.quantity').value;
-              const price = item.querySelector('.price').value;
-              const itemTotal = item.querySelector('.item-total').value;
+              
+              if (productName != "Selecione o produto"){
+                  const quantity = item.querySelector('.quantity').value;
+                  const price = item.querySelector('.price').value;
+                  const itemTotal = item.querySelector('.item-total').value;
+            
+                  total += parseFloat(itemTotal);
 
-              total += parseFloat(itemTotal);
-
-              const row = document.createElement('tr');
-              row.innerHTML = `
+                  console.log(price)
+                  const row = document.createElement('tr');
+                  row.innerHTML = `
                   <td>${index + 1}</td>
                   <td>${productName}</td>
                   <td>${quantity}</td>
                   <td>R$ ${parseFloat(price).toFixed(2)}</td>
                   <td>R$ ${parseFloat(itemTotal).toFixed(2)}</td>
-              `;
-              itemsTable.appendChild(row);
-          });
+                  `;
+                  itemsTable.appendChild(row);
+                }
+            });
 
           document.getElementById('doc-total').textContent = `R$ ${total.toFixed(2)}`;
           document.getElementById('doc-observations').textContent = document.getElementById('observations').value;
