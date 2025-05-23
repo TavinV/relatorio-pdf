@@ -172,6 +172,7 @@
 
           // Mostrar documento
           document.getElementById('document').style.display = 'block';
+          document.getElementById('document-buttons').style.display = 'block'
       });
 
       // Imprimir documento (somente o conteúdo da nota fiscal)
@@ -190,7 +191,7 @@
           const element = document.getElementById('document');
           const opt = {
               margin: 10,
-              filename: `nota_fiscal_heliocentrism_${document.getElementById('doc-number').textContent}.pdf`,
+              filename: `nota_fiscal_gomepato_${document.getElementById('doc-number').textContent}.pdf`,
               image: { type: 'jpeg', quality: 0.98 },
               html2canvas: {
                   scale: 2,
